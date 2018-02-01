@@ -6,9 +6,10 @@
 
 char *rtrim(char *out, char *in) {
   strcpy(out, in);
-  unsigned int end = strlen(in);
-  while (isspace(in[--end]));
-  out[end + 1] = 0;
+  int end = strlen(in) - 1;
+  while (end >= 0 && isspace(in[end])) { 
+    out[end--] = 0;
+  }
   return out;
 }
 

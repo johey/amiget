@@ -2,9 +2,12 @@
 
 TEST(utility, rtrim) {
   char trimmed[100];
-  ASSERT_STREQ(rtrim(trimmed, (char *)"test"), (char *)"test");
-  ASSERT_STREQ(rtrim(trimmed, (char *)"test   "), (char *)"test");
-  ASSERT_STREQ(rtrim(trimmed, (char *)"test\n"), (char *)"test");
+  ASSERT_STREQ(rtrim(trimmed, (char *)"first"), (char *)"first");
+  ASSERT_STREQ(rtrim(trimmed, (char *)"second   "), (char *)"second");
+  ASSERT_STREQ(rtrim(trimmed, (char *)"third\n"), (char *)"third");
+  ASSERT_STREQ(rtrim(trimmed, (char *)""), (char *)"");
+  ASSERT_STREQ(rtrim(trimmed, (char *)" "), (char *)"");
+  ASSERT_STREQ(rtrim(trimmed, (char *)"\n"), (char *)"");
 }
 
 TEST(utility, str_split) {
