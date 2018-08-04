@@ -10,8 +10,11 @@ TEST(metaparser, package_meta) {
 
 TEST(metaparser, generate_toc) {
   char *toc_tmp = (char *)"/tmp/toc_tmp";
+  unsigned int tocs;
+  list_t *toclist = list_init();
 
-  generate_toc((char *)"resources/test/packages.txt", toc_tmp);
+  tocs = generate_toc(toclist, (char *)"resources/test/packages.txt", toc_tmp);
+  ASSERT_EQ(2, tocs);
   
   toc_t *toc = toc_init();
   parse_toc(toc, toc_tmp);
@@ -21,6 +24,8 @@ TEST(metaparser, generate_toc) {
   ASSERT_EQ(remove(toc_tmp), 0);
 
   ASSERT_GT(toc_find_package(toc, (char *)"testutility"), 0);
+
+  list_destruct(toclist);
 }
 
 TEST(metaparser, _parse_toc_entry) {

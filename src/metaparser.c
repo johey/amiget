@@ -33,38 +33,45 @@ void _parse_toc_entry(package_meta_t *meta, char *buffer) {
   meta->ver_package = atoi(subsplits[2]);
   split_clean(subsplits, subsize);
   split_clean(splits, size);
+  printf("Name:'%s'\n", meta->name);
 }
 
 
-void generate_toc(char *packages_filename, char *toc_filename) {
+unsigned int generate_toc(list_t *toc_list, char *packages_filename, char *toc_filename) {
   FILE *packages_file, *toc_file;
 
   if (!(packages_file = fopen(packages_filename, "r"))) {
     printf("Cannot open file '%s' for reading.\n", packages_filename);
-    return;
+    return 0;
   }
 
   if (!(toc_file = fopen(toc_filename, "w"))) {
     printf("Cannot open file '%s' for writing.\n", toc_filename);
-    return;
+    return 0;
   }
 
   printf("Reading packages from '%s'\n", packages_filename);
   printf("Writing toc to '%s'\n", toc_filename);
 
   char buffer[1024];
+  unsigned int tocs = 0;
   while(fgets(buffer, 1024, packages_file)) {
     rtrim(buffer, buffer);
-    printf("Line: '%s'\n", buffer);
+    //printf("Line: '%s'\n", buffer);
     if (buffer[0] == '#') {
       package_meta_t *meta = package_meta_init();
       _parse_toc_entry(meta, buffer);
+      list_push_back(toc_list, (package_meta_t *)meta, 1);
       package_meta_destruct(meta);
+      tocs++;
+      continue;
     }
   }
 
   fclose(packages_file);
   fclose(toc_file);
+
+  return tocs;
 }
 
 

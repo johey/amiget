@@ -1,4 +1,4 @@
-C_FILES=amiget.c metaparser.c utility.c
+C_FILES=amiget.c metaparser.c utility.c list.c
 
 all: test amiga
 

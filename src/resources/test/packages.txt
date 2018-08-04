@@ -8,3 +8,14 @@ Simple package to test Amiget
 This package contains a rebranded version of the Multiview application
 usually found in AmigaOS 3.1 systems. It is called Amiget Test Utility
 and will be installed in a separate drawer in Sys:Utilities.
+#anotherutility:1.0.1
+SYS:Utilities/TestUtility/Amiget Test Utility
+SYS:Utilities/TestUtility/Amiget Test Utility.info
+SYS:Utilities/TestUtility.info
+:
+Testing another utility
+:
+This is just another utility you know.
+
+With a blank line in the details. :)
+

@@ -1,6 +1,7 @@
 #ifndef __METAPARSER_H
 #define __METAPARSER_H
 
+#include "list.h"
 #include "utility.h"
 
 typedef struct package_meta {
@@ -16,7 +17,7 @@ typedef struct toc {
 
 int extract_meta_from_package(package_meta_t *pm, char *package);
 
-void generate_toc(char *packages_filename, char *toc_filename);
+unsigned int generate_toc(list_t *toc_list, char *packages_filename, char *toc_filename);
 void parse_toc(toc_t *toc, char *path);
 unsigned int toc_find_package(toc_t *toc, char *path);
 

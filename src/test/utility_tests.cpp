@@ -8,6 +8,7 @@ TEST(utility, rtrim) {
   ASSERT_STREQ(rtrim(trimmed, (char *)""), (char *)"");
   ASSERT_STREQ(rtrim(trimmed, (char *)" "), (char *)"");
   ASSERT_STREQ(rtrim(trimmed, (char *)"\n"), (char *)"");
+  ASSERT_STREQ(rtrim(trimmed, (char *)"\t"), (char *)"");
 }
 
 TEST(utility, str_split) {
