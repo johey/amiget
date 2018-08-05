@@ -12,7 +12,7 @@ and at the same time a very early and feature-incomplete version of the Amiget C
 ### Repository
 
 * Repositories are hosted on http servers. The official upstream repositories will be hosted on AWS S3, at least for the time being.
-* A package is a single file named <filename>-<version>.amg. The amd file is in fact an lha file containing a metadata file named <filename>-<version>.meta and the software files.
+* A package is a single file named `<filename>-<version>.amg`. The `amg` file is in fact an `lha` file containing a metadata file named `<filename>-<version>.meta` and the software files.
 
 ### Client
 
