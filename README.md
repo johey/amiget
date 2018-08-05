@@ -29,7 +29,7 @@ A client is a system where Amiget is installed managing a set of package install
 * `package-details <package>` - show details about installed `<package>` *TODO*
 * `query-file <file>` - show which package is responsible for a given `<file>`, if any *TODO*
 * `export <file>` - export the list of installed packages to given `<file>` *TODO*
-* 'import <file>` - (remote) install all packages in given `<file>`, previously exported by `export` *TODO*
+* `import <file>` - (remote) install all packages in given `<file>`, previously exported by `export` *TODO*
 
 ## Use Cases
 
